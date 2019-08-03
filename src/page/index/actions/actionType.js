@@ -1,0 +1,1 @@
+export const SWITCH_TABS = 'SWITCH_TABS'
