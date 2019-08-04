@@ -3,3 +3,5 @@ export const SWITCH_TABS = 'SWITCH_TABS'
 export const GET_CATEGORY_DATA = 'GET_CATEGORY_DATA'
 
 export const GET_CONTENT_LIST = 'GET_CONTENT_LIST'
+
+export const ORDER_LIST = 'ORDER_LIST'

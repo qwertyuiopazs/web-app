@@ -3,11 +3,13 @@ import {combineReducers} from 'redux'
 import tabReducer from  './../reducers/tabReducer'
 import categoryReducer from  './../reducers/categoryReducer'
 import contentListReducer from  './../reducers/contentListReducer'
+import orderReducer from  './../reducers/orderReducer'
 
 const reducers = combineReducers({
   tabReducer,
   categoryReducer,
-  contentListReducer
+  contentListReducer,
+  orderReducer
 })
 
 export default reducers

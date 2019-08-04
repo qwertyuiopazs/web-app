@@ -54,7 +54,10 @@ const config = {
     filename: '[name].min.js' // 和入口文件的名字相同
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    alias: {
+      components: path.resolve(srcRoot, 'components')
+    }
   },
   devServer: {
     contentBase: devRoot,

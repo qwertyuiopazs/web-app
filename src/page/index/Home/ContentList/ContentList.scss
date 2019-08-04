@@ -1,5 +1,6 @@
 .main-content{
     padding-top: px2rem(20px);
+    padding-bottom: 50px;
     .list-title{
         text-align: center;
         font-style: px2rem(16px);
@@ -9,7 +10,8 @@
             display: inline-block;
             width: px2rem(30px);
             border-bottom: 1px solid #94949494;
-            margin: 4px;
+            margin: px2rem(4px);
         }
     }
+
 }
