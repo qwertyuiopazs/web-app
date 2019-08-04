@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require("html-webpack-plugin")
-
+const webpack = require('webpack');
 const srcRoot = path.resolve(__dirname, 'src');
 const devRoot = path.resolve(__dirname, 'dev');
 const pageDir = path.resolve(srcRoot, 'page');
@@ -58,7 +58,8 @@ const config = {
   },
   devServer: {
     contentBase: devRoot,
-    compress: true,
+    hot: true,
+    // compress: true,
     port: 9000
   },
   module: {
@@ -84,7 +85,10 @@ const config = {
       }
     ]
   },
-  plugins: [].concat(htmlArray)
+  plugins: [
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin()
+  ].concat(htmlArray)
 };
 
 module.exports = config;

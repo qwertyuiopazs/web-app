@@ -1,0 +1,17 @@
+.category-wrap{
+    padding-bottom: 10px;
+    .category-item{
+        float: left;
+        width: 25%;
+        padding-top: px2rem(14px);
+        font-size: px2rem(13px);
+        text-align: center;
+        .item-icon{
+            width: px2rem(47px);
+        }
+        p{
+            margin-top: px2rem(14px)
+        }
+    }
+
+}

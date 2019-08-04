@@ -1,0 +1,83 @@
+.item-content{
+    display: flex;
+    padding: px2rem(15px) 0;
+    margin: 0 px2rem(10px);
+    color: #666;
+    &:after{
+        background-color: #e4e4e4
+    }
+
+    .item-img{
+        width: px2rem(86px);
+        height: px2rem(65px);
+        border: 1px solid #e4e4e4;
+        position: relative;
+        img{
+            width: 100%;
+        }
+        .brand{
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            font-style: 12px;
+            padding: 2px;
+            color: #ffffff;
+        }
+        .brand-pin{
+            background-color: #ffa627
+        }
+        .brand-xin{
+            background-color: #21c56c
+        }
+    }
+    .item-detail{
+        flex: 1;
+        margin-left: px2rem(7px);
+        .item-title{
+            margin-top: 3px;
+            font-style: 16px;
+            font-weight: 500;
+            color: #333333;
+        }
+        .item-desc{
+            margin-top: 13px;
+            font-style: 12px;
+            .item-score{
+                float: left;
+                display: flex;
+                .star{
+                    width: 14px;
+                    height: 14px;
+                    background-size: contain;
+                    background-position: center center;
+                }
+                .full-star{
+                    background-image: url('./img/fullstar.png')
+                }
+                .harf-star{
+                    background-image: url('./img/halfstar.png')
+                }
+                .null-star{
+                    background-image: url('./img/nullstar.png')
+                }
+            }
+            .item-count{
+                float: left;
+                margin-left: 5px;
+            }
+            .item-distance{
+                float: right;
+            }
+            .item-time{
+                float: right;
+                margin-left: 5px;
+            }
+        }
+        .item-price{
+            margin-top: 10px;
+            font-style: 12px;
+            height: 24px;
+        }
+        
+    }
+}
