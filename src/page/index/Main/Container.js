@@ -1,11 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {hot} from 'react-hot-loader'
-import Main from './Main'
 
 class Container extends Component {
-    render() {
-        return (<Main />);
-    }
+  render() {
+    return (
+        <div>
+            {this.props.children}
+        </div>
+    );
+  }
 }
 
 export default hot(module)(Container);
+// export default Container;

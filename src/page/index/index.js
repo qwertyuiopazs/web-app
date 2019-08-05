@@ -2,11 +2,12 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import store from './store'
 import {Provider} from 'react-redux'
-import Container from './Main/Container'
+import Router from './Main/router'
+
 
 ReactDom.render(
   <Provider store={store}>
-    <Container />
+      <Router />
   </Provider>,
   document.getElementById('root')
 )

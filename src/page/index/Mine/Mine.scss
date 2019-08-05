@@ -1,0 +1,93 @@
+.main-mine{
+    background-color: #eee;
+    min-height: calc(100vh);
+    .header{
+        width: 100%;
+        height: px2rem(160px);
+        background-image: url(./img/header.png);
+        background-size: cover;
+        text-align: center;
+        overflow: hidden;
+        .avatar{
+            width: px2rem(72px);
+            height: px2rem(72px);
+            margin: px2rem(25px) auto 0;
+            display: block;
+            border: px2rem(3px) solid rgba(255,255,255,.4);
+            border-radius: 50%;
+        }
+        .nickName{
+            font-size: px2rem(16px);
+            color: #333;
+            margin-top: px2rem(15px)
+        }
+    }
+    .content{
+        .items{
+            background-color: #fff;
+            border-bottom: px2rem(15px) solid #eee;
+            li{
+                height: px2rem(45px);
+                font-size: px2rem(14px);
+                line-height: px2rem(45px);
+                position: relative;
+                margin: 0 px2rem(15px);
+                padding-left: px2rem(25px);
+                border-bottom: 1px solid #eee;
+                &:last-child{
+                    border: none
+                }
+                &:before{
+                    content: '';
+                    display: block;
+                    width: px2rem(18px);
+                    height: px2rem(18px);
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    -webkit-transform: translateY(-50%);
+                    transform: translateY(-50%);
+                    background-size: cover;
+                }
+                &:after{
+                    content: '>';
+                    width: px2rem(18px);
+                    height: px2rem(18px);
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    right: px2rem(9px);
+                    color: #aaa
+                }
+            }
+            .address{
+                &:before {
+                    background-image: url(./img/address.png)
+                }
+            }
+            .money{
+                &:before {
+                    background-image: url(./img/money.png)
+                }
+            }
+            .email{
+                &:before {
+                    background-image: url(./img/email.png)
+                }
+            }
+            .question{
+                &:before {
+                    background-image: url(./img/question.png)
+                }
+            }
+        }
+        .tel{
+            font-size: px2rem(15px);
+            color: #ffb000;
+            height: px2rem(46px);
+            line-height: px2rem(46px);
+            text-align: center;
+            background-color: #ffffff
+        }
+    }
+}
