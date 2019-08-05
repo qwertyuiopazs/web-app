@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {switchTabs} from '../actions/tabAction';
 import './index.scss'
@@ -12,14 +13,13 @@ class BottomBar extends Component {
   renderItems = () => {
     return this.props.tabs.map((item,index) => {
       let cls = 'btn-item ' + item.key
-      if(item.key === this.props.activeKey) {
-        cls += ' active'
-      }
 
       return (
                 <div onClick={()=>{this.switchTabs(item.key)}} key={index} className={cls}>
-                  <div className="btn-icon"></div>
-                  <div className="btn-name">{item.name}</div>
+                  <NavLink to={'/'+item.key} activeClassName="selected">
+                    <div className="btn-icon"></div>
+                    <div className="btn-name">{item.name}</div>
+                  </NavLink>
                 </div>
               )
       })

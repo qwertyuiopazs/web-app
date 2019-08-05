@@ -1,13 +1,15 @@
-import React, { Component } from "react";
-import { HashRouter, Route, Switch } from "react-router-dom";
+import React, { Component } from 'react';
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 // 引入入口组件，可接受不同组件
-import Container from "./Container";
+import Container from './Container';
 
 // Main入口组件
-import Main from './Main'
+import Main from './Main';
 
 // 首页
-import Home from './Main'
+import Home from '../Home/index';
+import Order from '../Order/Order';
+import Mine from '../Mine/Mine';
 
 class Router extends Component {
   render() {
@@ -15,14 +17,20 @@ class Router extends Component {
       <HashRouter>
         <Container>
           <Switch>
-
-            <Route path="/" render={()=>{
+            {/* <Route path="/home" component={Home} /> */}
+            <Route exact path="/" render={() =>( <Redirect to="/home" /> )} />
+            <Route
+              path="/"
+              render={() =>(
                 <Main>
-                    <Switch>
-                        <Route path="/home" component={Home} />
-                    </Switch>
+                  <Switch>
+                    <Route path="/home" component={Home} />
+                    <Route path="/order" component={Order} />
+                    <Route path="/mine" component={Mine} />
+                  </Switch>
                 </Main>
-            }} />
+              )}
+            />
 
             {/* <Route path="/home" component={Home} /> */}
             {/* <Route
