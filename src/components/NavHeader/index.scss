@@ -1,4 +1,6 @@
-.NavHeader{
+.NavHeaderWrapper{
+  height: px2rem(64px);
+  .NavHeader{
   overflow: hidden;
   width: 100%;
   height: px2rem(64px);
@@ -24,3 +26,5 @@
     background-size: cover
   }
 }
+}
+

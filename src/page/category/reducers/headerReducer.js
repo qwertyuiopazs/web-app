@@ -27,7 +27,7 @@ const initState = {
 
 // 头部数据
 const fetchData = (state, action) => {
-  window.console.log(action.data)
+  // window.console.log(action.data)
   return {
     ...state,
     filterData: action.data

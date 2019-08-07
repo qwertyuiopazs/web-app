@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {TABKEY} from '../config'
 import {changTab, getFilterData, changFilter} from '../actions/headerAction'
+import {getContentListAction} from '../actions/contentListAction';
 import './Header.scss';
 
 class Header extends Component {
@@ -212,7 +213,14 @@ class Header extends Component {
     // item 是对象的引用，这里修改之后，也对原数据修改
     item.active=true
     
-    this.props.dispatch(changFilter({item, key}))
+    this.props.dispatch(changFilter({item, key}));
+
+    // 更新数据
+    this.props.dispatch(getContentListAction({
+      filterData: item,
+      toFirstPage: true
+    }))
+    
   }
 
 

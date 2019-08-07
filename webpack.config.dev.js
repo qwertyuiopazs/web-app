@@ -62,6 +62,13 @@ const config = {
   devServer: {
     contentBase: devRoot,
     hot: true,
+    historyApiFallback: {
+      // rewrites: [
+      //   { from: /^\/$/, to: '/views/landing.html' },
+      //   { from: /^\/subpage/, to: '/views/subpage.html' },
+      //   { from: /./, to: '/views/404.html' }
+      // ]
+    },
     // compress: true,
     port: 9000
   },

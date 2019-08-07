@@ -10,7 +10,11 @@ import Main from './Main';
 import Home from '../Home/index';
 import Order from '../Order/Order';
 import Mine from '../Mine/Mine';
+// 评价
+import Evalution from "../evalution/evalution";
 
+// 404 
+import NoMatch from '../404';
 class Router extends Component {
   render() {
     return (
@@ -18,6 +22,7 @@ class Router extends Component {
         <Container>
           <Switch>
             {/* <Route path="/home" component={Home} /> */}
+            <Route exact path="/evalution" component={Evalution}/>
             <Route exact path="/" render={() =>( <Redirect to="/home" /> )} />
             <Route
               path="/"
@@ -27,33 +32,12 @@ class Router extends Component {
                     <Route path="/home" component={Home} />
                     <Route path="/order" component={Order} />
                     <Route path="/mine" component={Mine} />
+                    <Route component={NoMatch}/>
                   </Switch>
                 </Main>
               )}
             />
-
-            {/* <Route path="/home" component={Home} /> */}
-            {/* <Route
-            path="/admin"
-            render={() => (
-              <Admin>
-                <Switch>
-                  <Route path="/admin/ui/buttons" component={Buttons} />
-                  <Route path="/admin/ui/modals" component={Modals} />
-                  <Route path="/admin/ui/loadings" component={Loading} />
-                  <Route path="/admin/form/login" component={FormLogin} />
-                  <Route path="/admin/form/reg" component={FormRegister} />
-                  <Route path="/admin/table/basic" component={Table} />
-                  <Route path="/admin/table/high" component={HighTable} />
-                  <Route path="/admin/city" component={City} />
-                  <Route path="/admin/order" component={Order} />
-
-                  <Route path="/admin/permission" component={Permission} />
-                  <Route component={NoMatch} />
-                </Switch>
-              </Admin>
-            )}
-          /> */}
+            <Route component={NoMatch}/>
           </Switch>
         </Container>
       </HashRouter>

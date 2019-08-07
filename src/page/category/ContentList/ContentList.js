@@ -8,17 +8,12 @@ import './ContentList.scss';
 class ContentList extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      isEnd: false
-    };
-    this.page = 0
   }
 
   render() {
     return (
       <div className="main-content">
-        <ScrollView loadCallback={this.onLoadPage} isEnd={this.state.isEnd}>
+        <ScrollView loadCallback={this.onLoadPage} isEnd={this.props.isEnd}>
             {this.renderItems()}
         </ScrollView>
       </div>
@@ -32,27 +27,24 @@ class ContentList extends Component {
     ));
   };
   componentDidMount() {
-    this.getContentList(0);
+    this.getContentList({});
   }
   onLoadPage = () => {
     // 最多滚动三次
-    if(this.page>2) {
-        this.setState({
-            isEnd: true
-        })
-    }else{
-        this.getContentList(this.page);
+    if(this.props.page<2) {
+        this.getContentList({});
     }
-    this.page++
   };
 
-  getContentList = (page = 0) => {
-    this.props.dispatch(getContentListAction(page));
+  getContentList = () => {
+    this.props.dispatch(getContentListAction({}));
   };
 }
 
 const mapState = state => ({
-  poilist: state.contentListReducer.poilist
+  poilist: state.contentListReducer.poilist,
+  page: state.contentListReducer.page,
+  isEnd: state.contentListReducer.isEnd
 });
 
 export default connect(
