@@ -62,12 +62,13 @@ const config = {
   devServer: {
     contentBase: devRoot,
     hot: true,
+    host: '192.168.254.116',
     historyApiFallback: {
-      // rewrites: [
-      //   { from: /^\/$/, to: '/views/landing.html' },
-      //   { from: /^\/subpage/, to: '/views/subpage.html' },
-      //   { from: /./, to: '/views/404.html' }
-      // ]
+      rewrites: [
+        { from: /^\/$/, to: '/views/index.html' },
+        { from: /^\/detail/g, to: '/dev/detail.html' },
+        { from: /^\/category/g, to: '/dev/category.html' }
+      ]
     },
     // compress: true,
     port: 9000

@@ -6,7 +6,8 @@
     "document": true,
     "module": true,
     "require": true,
-    "console": true
+    "console": true,
+    "debugger": true
   },
   "rules": {
     "react/prop-types": "off"

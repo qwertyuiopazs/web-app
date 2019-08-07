@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
 // 入口组件
 import Container from "../Main/Container";
 
@@ -8,12 +8,15 @@ import Main from '../Main/Main'
 
 // 点菜
 import Menu from '../Menu/Menu'
+// 评价
+import Comment from '../Comment/Comment'
+import Restanurant from '../Restanurant/Restanurant'
 
 
 class Router extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter>
         <Container>
           <Switch>
             <Route exact path="/" render={() => <Redirect to="/menu" />} />
@@ -23,15 +26,15 @@ class Router extends Component {
                 <Main>
                   <Switch>
                     <Route path="/menu" component={Menu} />
-                    {/* <Route path="/order" component={Order} />
-                    <Route path="/mine" component={Mine} /> */}
+                    <Route path="/comment" component={Comment} />
+                    <Route path="/restanurant" component={Restanurant} />
                   </Switch>
                 </Main>
               )}
             />
           </Switch>
         </Container>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }

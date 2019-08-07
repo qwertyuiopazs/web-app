@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import NavHeader from 'components/NavHeader'
+import {NavLink} from 'react-router-dom';
 import './Main.scss'
 class TM_FILENAME_BASE extends Component {
   render() {
@@ -20,10 +21,9 @@ class TM_FILENAME_BASE extends Component {
   }
   renderTabs = () => {
     let {tabs} = this.props
-
     return tabs.map((item,index)=> {
       return(
-        <div className="tab-item" key={index}>{item.name}</div>
+          <NavLink activeClassName="active" className="tab-item" key={index} to={'/'+item.key}>{item.name}</NavLink>
       )
     })
   }

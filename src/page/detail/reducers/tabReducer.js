@@ -9,6 +9,8 @@ const initState = {
 }
 
 export default (state=initState, action) => {
-    window.console.log(action)
-    return state
+    switch (action.type) {
+        default:
+            return state;
+    }
 }

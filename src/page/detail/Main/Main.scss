@@ -3,24 +3,24 @@
         font-size: px2rem(16px);
         display: flex;
         border-bottom: 1px solid #f0f0f0;
-        margin-top: px2rem(6px);
         .tab-item{
+            display: block;
             height: px2rem(45px);
             line-height: px2rem(45px);
-            line-height: px2rem(45px);
             position: relative;
-            color: #666;
             text-align: center;
+            color: #666;
             flex: 1;
             &.active{
                 &:after {
                     content: '';
                     display: block;
-                    height: 4ps;
-                    width: 60px;
+                    height: px2rem(4px);
+                    width: px2rem(60px);
                     position: absolute;
                     bottom: 0;
                     left: 50%;
+                    background-color: #ffd161;
                     -webkit-transform: translateX(-50%);
                     transform: translateX(-50%)
                 }
