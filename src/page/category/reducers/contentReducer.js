@@ -1,15 +1,15 @@
 import {GET_LIST_DATA} from '../actions/actionTypes'
 
 const initState = {
-    contentList: [],
-    currentPage: 0
+  poilist: [],
+  currentPage: 0
 }
 
 const contentListData = (state, action) => {
   window.console.log(action)
   return {
     ...state,
-    contentList: action.data
+    poilist: action.data.poilist
   }
 }
 

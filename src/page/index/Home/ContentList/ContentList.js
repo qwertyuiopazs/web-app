@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getContentListAction } from '../../actions/contentListAction';
-import ListItem from './ListItem/ListItem';
+import ListItem from 'components/ListItem/ListItem';
 import ScrollView from 'components/ScrollView/ScrollView';
 import './ContentList.scss';
 

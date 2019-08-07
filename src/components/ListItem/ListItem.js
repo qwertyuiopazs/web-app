@@ -5,7 +5,7 @@ class ListItem extends Component {
   render() {
     let { item } = this.props;
     return (
-      <div className="item-content scale-1px">
+      <div className="scroll-item-content scale-1px">
         <div className="item-img">
           <img src={item.pic_url} alt="" />
           {this.renderBrand(item)}
