@@ -1,6 +1,5 @@
 import axios from "axios";
 import { GET_LIST_DATA } from "./actionTypes";
-
 export const getContentListAction = obj => async (dispatch, getState) => {
   // 判断是哪里来的请求(Header 过来的action有 filterData)
   // getState()获取所有数据

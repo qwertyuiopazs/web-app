@@ -24,7 +24,14 @@ const handleSelectItem = (state, action, type) => {
   // 获取当前的列表
   let list = listData.food_spu_tags || [];
   // 通过列表,找到左边的类别对应的数据
-  let currentItem = list[state.outIndex||state.currentLeftIndex]
+  window.console.log("outIndex", action.obj.outIndex)
+  let currentItem;
+  if(action.obj.outIndex===0) {
+    currentItem = list[action.obj.outIndex]
+  }else{
+    currentItem = list[action.obj.outIndex||state.currentLeftIndex]
+  }
+
   // 获取当前点击的那一项，并数量 加一 或 减一
   if(type===ADD_SECLECT_ITEM) {
     currentItem.spus[action.obj.index].chooseCount ++;

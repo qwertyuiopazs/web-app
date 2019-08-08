@@ -6,6 +6,8 @@ const srcRoot = path.resolve(__dirname, 'src');
 const devRoot = path.resolve(__dirname, 'dev');
 const pageDir = path.resolve(srcRoot, 'page');
 const mainFile = 'index.js';
+// 它为每个包含CSS的JS文件创建一个CSS文件。
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // 遍历所有html
 function getHtmlArray(entryMap) {
@@ -18,7 +20,7 @@ function getHtmlArray(entryMap) {
         new HtmlWebpackPlugin({
           filename: key + '.html',
           template: fileName,
-          chunks: [key]
+          chunks: ['common', key]
           // chunks 表示当前html需要引入哪些js文件
         })
       )
@@ -63,22 +65,37 @@ const config = {
     contentBase: devRoot,
     hot: true,
     host: 'localhost',
-    historyApiFallback: {
-      rewrites: [
-        { from: /^\/$/, to: '/views/index.html' },
-        { from: /^\/detail/g, to: '/dev/detail.html' },
-        { from: /^\/category/g, to: '/dev/category.html' }
-      ]
+    proxy: {
+      '/api': 'http://localhost:3000'
     },
-    // compress: true,
+    compress: true,
     port: 9000
   },
   module: {
     rules: [
       { test: /\.(js|jsx)$/, use: [{loader: 'babel-loader'}, {loader: 'eslint-loader'}], include: srcRoot },
       { test: /\.css$/, use: ['style-loader', 'css-loader'], include: srcRoot },
+      
+      // {
+      //   test: /\.css$/,
+      //   use: [
+      //     {
+      //       loader: MiniCssExtractPlugin.loader,
+      //       options: {
+      //         // you can specify a publicPath here
+      //         // by default it uses publicPath in webpackOptions.output
+      //         publicPath: '../',
+      //         hmr: process.env.NODE_ENV === 'development',
+      //       },
+      //     },
+      //     'css-loader',
+      //   ],
+      // },
+      
       {
         test: /\.scss$/,
+        // MiniCssExtractPlugin.loader or 'style-loader'
+        // use: [MiniCssExtractPlugin.loader,  'css-loader', 'sass-loader',
         use: ['style-loader', 'css-loader', 'sass-loader',
           {
             loader: 'sass-resources-loader', 
@@ -96,9 +113,28 @@ const config = {
       }
     ]
   },
+  // 分割common模块公用，并引入html插件
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        common: {
+          name: 'common',
+          test: /[\\/]node_modules[\\/]/,
+          chunks: 'all'
+        }
+      }
+    }
+  },
   plugins: [
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    // new MiniCssExtractPlugin({
+    //   // Options similar to the same options in webpackOptions.output
+    //   // all options are optional
+    //   filename: '[name].css',
+    //   chunkFilename: '[id].css',
+    //   ignoreOrder: false, // Enable to remove warnings about conflicting order
+    // })
   ].concat(htmlArray)
 };
 

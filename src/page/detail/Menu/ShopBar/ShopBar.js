@@ -97,9 +97,9 @@ class ShopBar extends Component {
    */
   renderShopItem = data => {
     let array = data.chooseList || [];
-    return array.map((item, index) => {
+    return array.map((item) => {
       return (
-        <div className="chooseItem" key={index}>
+        <div className="chooseItem" key={item.id}>
           <div className="item-name">{item.name}</div>
           <div className="price">￥{item.min_price * item.chooseCount}</div>
           <div className="select-content">
@@ -138,6 +138,7 @@ class ShopBar extends Component {
       let spus = listData[index].spus || [];
       for (let j = 0; j < spus.length; j++) {
         let chooseCount = spus[j].chooseCount;
+
         if (chooseCount > 0) {
           dotNum += chooseCount;
           totalPrice += spus[j].min_price * chooseCount;
@@ -147,6 +148,7 @@ class ShopBar extends Component {
           // 当前左边导航的索引
           spus[j]._outIndex = index;
         }
+
       }
     }
     return {

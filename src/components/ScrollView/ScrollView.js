@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import Loading from '../Loading/Loading'
-
+import React, { Component } from 'react';
+import Loading from '../Loading/Loading';
+import { connect } from 'react-redux';
 /**
  *<ScrollView   isEnd={isEnd} loadCallback={loadCallback} />
  * @class ScrollView
@@ -9,17 +9,17 @@ import Loading from '../Loading/Loading'
 class ScrollView extends Component {
   render() {
     return (
-        <div className="scroll-view">
-            {this.props.children}
-            <Loading isEnd={this.props.isEnd} />
-        </div>
-    )
+      <div className="scroll-view">
+        {this.props.children}
+        <Loading isEnd={this.props.isEnd} />
+      </div>
+    );
   }
   componentDidMount() {
-    window.addEventListener("scroll", this.scrollHandle);
+    window.addEventListener('scroll', this.scrollHandle);
   }
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.scrollHandle);
+    window.removeEventListener('scroll', this.scrollHandle);
   }
   // 滚动的回调
   scrollHandle = () => {
@@ -32,11 +32,16 @@ class ScrollView extends Component {
     // 触发临界高度
     let proLoaDis = 30;
     if (clientHeight + scrollTop >= scrollHeight - proLoaDis) {
-        if(!this.props.isEnd) {
-            this.props.loadCallback && this.props.loadCallback()
-        }
+      if (!this.props.isEnd) {
+        if (!this.props.readyLoad) return;
+        this.props.loadCallback && this.props.loadCallback();
+      }
     }
   };
 }
 
-export default ScrollView;
+const mapState = state => ({
+  readyLoad: state.ScrollViewReducer.readyLoad
+});
+
+export default connect(mapState)(ScrollView);
