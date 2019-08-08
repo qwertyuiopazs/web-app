@@ -7,7 +7,8 @@
     "module": true,
     "require": true,
     "console": true,
-    "debugger": true
+    "debugger": true,
+    "compose": true
   },
   "rules": {
     "react/prop-types": "off"

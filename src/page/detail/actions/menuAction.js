@@ -1,4 +1,4 @@
-import {GET_LEFTBAR_LIST, LEFT_CLICK, ADD_SECLECT_ITEM, MINUS_SECLECT_ITEM} from './actionTypes'
+import {GET_LEFTBAR_LIST, LEFT_CLICK, ADD_SECLECT_ITEM, MINUS_SECLECT_ITEM, SHOW_CHOOSE, CLEAR_CHOOSE} from './actionTypes'
 import axios from 'axios'
 
 export const getLeftBarList = () => async (dispatch)=>{
@@ -29,5 +29,18 @@ export const minusSelectedItem = (obj) => {
   return ({
     type: MINUS_SECLECT_ITEM,
     obj
+  });
+}
+
+export const showChoose = (obj) => {
+  return ({
+    type: SHOW_CHOOSE,
+    obj
+  });
+}
+
+export const clearChoose = () => {
+  return ({
+    type: CLEAR_CHOOSE
   });
 }

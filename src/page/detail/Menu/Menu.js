@@ -3,6 +3,8 @@ import { getLeftBarList, itemClick } from '../actions/menuAction';
 import { connect } from 'react-redux';
 import './Menu.scss';
 import MenuItem from './MenuItem/MenuItem'
+import ShopBar from './ShopBar/ShopBar'
+
 class Menu extends Component {
   render() {
     return (
@@ -11,6 +13,7 @@ class Menu extends Component {
           <div className="left-bar-inner">{this.renderLeftBar()}</div>
         </div>
         <div className="right-content">{this.renderRight()}</div>
+        <ShopBar />
       </div>
     );
   }

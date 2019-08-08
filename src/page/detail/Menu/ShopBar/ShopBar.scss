@@ -1,0 +1,107 @@
+.shop-bar{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    .shop-content{
+        display: flex;
+        background-color: rgba(51,51,51,.9);
+        height: px2rem(50px);
+    }
+    .shop-icon{
+        width: px2rem(55px);
+        height: px2rem(55px);
+        background-image: url(./img/shop-icon.png);
+        background-size: cover;
+        margin: px2rem(-15px) 0 0 px2rem(12px);
+        position: relative;
+        .dot-num{
+            position: absolute;
+            background-color: #fb4e44;
+            width: px2rem(15px);
+            height: px2rem(15px);
+            line-height: px2rem(15px);
+            font-size: px2rem(12px);
+            color: #fff;
+            border: 1px solid #fff;
+            top: px2rem(2px);
+            right: 0;
+            border-radius: 50%;
+            text-align: center
+        }
+    }
+    .price-content{
+        flex: 1;
+        padding: px2rem(8px) 0 0  px2rem(7px);
+        .total-price{
+            font-size: px2rem(20px);
+            color: #fff
+        }
+        .other-price{
+            font-size: px2rem(12px);
+            color: #999;
+            margin-top: px2rem(2px)
+        }
+    }
+    .submit-btn{
+        width: px2rem(110px);
+        height: 100%;
+        background-color: #ffd161;
+        color: #333;
+        font-size: px2rem(16px);
+        line-height: px2rem(50px);
+        text-align: center
+    }
+    .select-content{
+        right: px2rem(9px);
+        bottom: px2rem(21px);
+        display: flex;
+        flex-direction: row-reverse;
+        .plus{
+          width: px2rem(25px);
+          height: px2rem(25px);
+          background-size: cover;
+          background-image: url(./img/plus.png);
+          cursor: pointer;
+        }
+        .count{
+          padding: 0 px2rem(10px);
+          line-height: px2rem(25px)
+        }
+        .minus{
+          background-image: url(./img/minus.png)
+        }
+      }
+
+    // 已选择的列表
+    .content-top{
+        background-color: rgba(0,0,0,.3);
+        position: fixed;
+        z-index: -1;
+        bottom: px2rem(50px);
+        left: 0;
+        right: 0;
+        top: 0;
+        .content-top-wrapper{
+            position: absolute;
+            bottom: 0;
+            background-color: #fff;
+            width: 100%;
+            padding-bottom: px2rem(20px);
+            .clear-top{
+                padding: 10px;
+                text-align: center;
+            }  
+            .chooseItem{
+                display: flex;
+                padding: px2rem(3px) px2rem(20px);
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 1px solid #efefef;
+                margin-top: 5px;
+                > div{ flex: 1}
+            }
+        }
+    }
+}

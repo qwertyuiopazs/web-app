@@ -62,7 +62,7 @@ const config = {
   devServer: {
     contentBase: devRoot,
     hot: true,
-    host: '192.168.254.116',
+    host: 'localhost',
     historyApiFallback: {
       rewrites: [
         { from: /^\/$/, to: '/views/index.html' },
